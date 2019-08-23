@@ -1,6 +1,6 @@
 # EVOLUTIONARY ALGORITHMS
 
-## MAXIMUN VALUE CALCULTOR
+## EQUATION GENERATOR (MAXIMUM VALUE CALCULATOR)
   Evolutionary algorithm that searches for an one variable function's maximum point.
 
 ## TARGET STRING
