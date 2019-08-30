@@ -1,0 +1,11 @@
+deu errado
+deveria copiar no fim do teste 2 haha
+isso tem que FICAR AQUI
+deveria copiar no fim do teste 2 haha
+
+
+DEU CERTO!!
+
+o comando é:
+
+cat teste.txt >> teste2.txt

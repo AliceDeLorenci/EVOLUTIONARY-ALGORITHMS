@@ -1,0 +1,20 @@
+
+*************************** TEST 0 ************************
+Generation:   0	Fittest gene: 3.000000	Score: 19.920256
+Generation:  99	Fittest gene: 2.085105	Score: 23.806936
+
+*************************** TEST 1 ************************
+Generation:   0	Fittest gene: 3.000000	Score: 19.920256
+Generation:  99	Fittest gene: 2.108429	Score: 23.811073
+
+*************************** TEST 2 ************************
+Generation:   0	Fittest gene: 3.000000	Score: 19.920256
+Generation:  99	Fittest gene: 2.111832	Score: 23.811180
+
+*************************** TEST 3 ************************
+Generation:   0	Fittest gene: 2.000000	Score: 23.741287
+Generation:  99	Fittest gene: 2.116256	Score: 23.811132
+
+*************************** TEST 4 ************************
+Generation:   0	Fittest gene: 19.000000	Score: 9.559979
+Generation:  99	Fittest gene: 20.144531	Score: 15.040550
