@@ -18,3 +18,5 @@
   
   Also, static and dinamic mutation rates were used, as well as predation techniques.
   
+  The programs' description and detailment can be found in their repective folders.
+  
