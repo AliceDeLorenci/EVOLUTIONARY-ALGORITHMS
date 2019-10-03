@@ -40,7 +40,7 @@ The terminal output shows nicely the evolution of the program and looks like the
  The blue dashed line corresponds to the averge score, and the continuous line to the fittest individuals.
 
 <p align="center">
-  <img width="460" height="300" src="https://github.com/AliceDeLorenci/EVOLUTIONARY-ALGORITHMS/blob/master/target_string/elitism/elitim_both.png">
+  <img width="460" height="300" src="https://github.com/AliceDeLorenci/EVOLUTIONARY-ALGORITHMS/blob/master/target_string/images/elitim_both.png">
 </p>
 
   Notice that the closer the algorithm gets to the target string the harder it is to evolve, which results in a behavior similar to f(x) = e<sup>-x</sup> .
@@ -51,7 +51,7 @@ The terminal output shows nicely the evolution of the program and looks like the
   Likewise, the graph bellow was plotted from the data output. The blue dashed line corresponds to the averge score, and the continuous line to the fittest individual's score.
   
   <p align="center">
-  <img width="460" height="300" src="https://github.com/AliceDeLorenci/EVOLUTIONARY-ALGORITHMS/blob/master/target_string/roulette/roulette_both.png">
+  <img width="460" height="300" src="https://github.com/AliceDeLorenci/EVOLUTIONARY-ALGORITHMS/blob/master/target_string/images/roulette_both.png">
 </p>
 
 # Tournament
@@ -62,6 +62,6 @@ The terminal output shows nicely the evolution of the program and looks like the
   The graphs plotted show that for this particular application the tournament method exhibits a slow convergence while the diversity is preserved, since the avarage score curve doesn't aproach significantly the fittest individuals curve.
 
 <p align="center">
-  <img src="https://github.com/AliceDeLorenci/EVOLUTIONARY-ALGORITHMS/blob/master/target_string/tournament/tournament_average.png">
-  <img src="https://github.com/AliceDeLorenci/EVOLUTIONARY-ALGORITHMS/blob/master/target_string/tournament/tournament_fittest.png">
+  <img src="https://github.com/AliceDeLorenci/EVOLUTIONARY-ALGORITHMS/blob/master/target_string/images/tournament_average.png">
+  <img src="https://github.com/AliceDeLorenci/EVOLUTIONARY-ALGORITHMS/blob/master/target_string/images/tournament_fittest.png">
 </p>
