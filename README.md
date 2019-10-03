@@ -14,7 +14,7 @@
   Essentially, an evolutionary algorithm consists of three steps (selection, crossover and mutation) wich are repeated until termination. Both of the programs mentioned above were implemented considering three different selection methods:
   - roulette wheel selection;
   - tournament selection;
-  - elitism ("best mates").  
+  - elitism.  
   
   Also, static and dinamic mutation rates were used, as well as predation techniques.
   
