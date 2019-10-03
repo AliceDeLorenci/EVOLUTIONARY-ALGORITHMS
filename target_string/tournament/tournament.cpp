@@ -1,10 +1,21 @@
-// https://www.geeksforgeeks.org/genetic-algorithms/
+/***********************************************************************************************
+ * C program to find user set target string starting from random generated string,
+ * using EVOLUTIONARY ALGORITHM
+ * 
+ * SELECTION METHOD: tournament
+ * Each parent is defined by choosing the fittest individual in a tournament between
+ * two randomly selected individuals
+ * 
+ * COMPILE AND RUN
+ * g++ -Wall tournament.cpp -o tournament.exe
+ * ./tournament.exe
+ * 
+ * OUTPUT
+ * Each generation's best guessed string is printed on the terminal
+************************************************************************************************/
 
-// C program to create target string, starting from 
-// random string using TOURNAMENT
 
-//looking at the graph, it seems that fittest individuals are not being preserved: it was a graphing problem,
-//searching the data generated the best individuals are indeed preserved
+#define REPEAT 1      // number of tests that will be run
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -45,7 +56,7 @@ void Sort (Individual population[]);
 // Perform crossover and produce new offspring 
 Individual mate (Individual *par1, Individual *par2);
 
-//Calculates a generation's avarage fitness
+//Calculates a generation's average fitness
 float Average_fitness(Individual population[]);
 
 void choose(Individual *pop, int *p1, int *p2);
@@ -53,60 +64,35 @@ void choose(Individual *pop, int *p1, int *p2);
 int main() 
 { 
 
-    /*
-    FILE *Arq1, *Arq2, *Arq3, *Arq4;  //variables: x -> generation, y -> fitness
+    FILE *Arq1, *Arq2, *Arq3;
 
+    // fittest individual score per generation
     Arq1 = fopen("./fittest.txt","w+");
-    Arq2 = fopen("./avarage.txt","w+");
+
+    // average fitness per generation
+    Arq2 = fopen("./average.txt","w+");
+
+    // number of generations needed per test to find target string
     Arq3 = fopen("./generation.txt","w+");
-    Arq4 = fopen("./plot.txt","w+");
+
 
     if(Arq1 == NULL || Arq2 == NULL || Arq3 == NULL){
         printf("WARNING");
         exit(0);
     }    
 
-    fprintf(Arq4,"Show[{");
 
-    // Show[{ListPlot[v1], ListPlot[v2]}, PlotRange -> All]
-    */
-/*********/
-   FILE *Arq1, *Arq2, *Arq3;  //variables: x -> generation, y -> fitness
-
-    Arq1 = fopen("./fittest.nb","w+");
-    Arq2 = fopen("./avarage.nb","w+");
-    Arq3 = fopen("./generation.txt","w+");
-
-    if(Arq1 == NULL || Arq2 == NULL || Arq3 == NULL){
-        printf("WARNING");
-        exit(0);
-    }   
-/********/
     int r;
-    for(r=0; r<1; r++){
+    for(r=0; r<REPEAT; r++){
 
     
-        /*
-        fprintf(Arq1,"\n\nListPlot[{",r);
-        fprintf(Arq2,"\n\nListPlot[{");
-        */
-        /*
         fprintf(Arq1,"\n\nv%d = {",r);
         fprintf(Arq2,"\n\nv%d = {",r);
-        if(r == 99)
-            fprintf(Arq4,"ListPlot[v%d]}, PlotRange -> All]",r);
-        else
-            fprintf(Arq4,"ListPlot[v%d],",r);
-        */
-       /********/
-        fprintf(Arq1,"\n\nv%d = {",r);
-        fprintf(Arq2,"\n\nv%d = {",r);
-       /********/
         
 
         srand((unsigned)(time(0)+r)); //unsigned -> only positive
     
-        float avarage;
+        float average;
         
         // current generation 
         int generation = 0; 
@@ -142,9 +128,9 @@ int main()
             printf("String: %s\t",population[0].chromosome);
             printf("Fitness: %d\n",population[0].fitness);
 
-            avarage = Average_fitness(population);
+            average = Average_fitness(population);
             fprintf(Arq1,"{%d,%d},",generation, population[0].fitness);
-            fprintf(Arq2,"{%d,%f},",generation, avarage);
+            fprintf(Arq2,"{%d,%f},",generation, average);
     
             // Otherwise generate new offsprings for new generation 
             Individual new_generation[POPULATION_SIZE]; 
@@ -179,44 +165,17 @@ int main()
         printf("Generation: %d\t",generation);
         printf("String: %s\t",population[0].chromosome);
         printf("Fitness: %d\n",population[0].fitness);
-        avarage = Average_fitness(population);
-        /*
-        fprintf(Arq1,"{%d,%d}}, PlotLabel -> \"FITTEST\"]",generation, population[0].fitness);
-        fprintf(Arq2,"{%d,%f}}, PlotLabel -> \"AVARAGE FITNESS\"]",generation, avarage);
-        */
+        average = Average_fitness(population);
+
         fprintf(Arq1,"{%d,%d}}",generation, population[0].fitness);
-        fprintf(Arq2,"{%d,%f}}",generation, avarage);
+        fprintf(Arq2,"{%d,%f}}",generation, average);
         fprintf(Arq3,"%d\n",generation);
 
     }
 
-
-/*
     fclose(Arq1);
     fclose(Arq2);
     fclose(Arq3);
-    fclose(Arq4);
-*/
-
-/******/
-    fprintf(Arq1,"\nShow[{");
-    fprintf(Arq2,"\nShow[{");
-
-    for(r=0; r<1; r++){
-        if(r == 0){
-            fprintf(Arq1,"ListPlot[v%d]}, PlotRange -> All]",r);
-            fprintf(Arq2,"ListPlot[v%d]}, PlotRange -> All]",r);
-        }
-        else{
-            fprintf(Arq1,"ListPlot[v%d],",r);
-            fprintf(Arq1,"ListPlot[v%d],",r);
-        }
-    }
-
-    fclose(Arq1);
-    fclose(Arq2);
-    fclose(Arq3);
-/******/
 
     return 0;
 } 
@@ -342,14 +301,14 @@ Individual mate (Individual *par1, Individual *par2)
     return child; 
 }
 
-//Calculates a generation's avarage fitness
+//Calculates a generation's average fitness
 float Average_fitness(Individual population[]){
     int i;
-    float avarage = 0;
+    float average = 0;
     for(i=0; i<POPULATION_SIZE; i++){
-        avarage += population[i].fitness;
+        average += population[i].fitness;
     }
-    avarage = avarage/POPULATION_SIZE;
+    average = average/POPULATION_SIZE;
 
-    return avarage;
+    return average;
 }
