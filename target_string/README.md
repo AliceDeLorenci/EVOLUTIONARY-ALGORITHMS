@@ -29,7 +29,7 @@ The terminal output shows nicely the evolution of the program and looks like the
  This algorithm was implemented for three different selection methods:
  - roulette wheel selection;
  - tournament selection;
- - elitism ("best mates");   
+ - elitism;   
  
  and uses a static mutation rate, each child chromosome gene has a 10% chance of mutating (in this context mutation is the   insertion of a random character).
  
