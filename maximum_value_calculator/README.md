@@ -1,0 +1,33 @@
+# Maximum Value Calculator
+
+The objective of this evolutionary algorithm is to find the maximum value of a one variable function, in this case
+the function used was:   
+<p align="center">
+f(x) = 2 cos(0.39x) + 5 sin(0.5x) + 0.5 cos(0.1x) + 10 sin(0.7x) + 5 sin(x) + 5 sin(0.35x)
+</p>
+
+on the interval 0 ≤ x ≤ 100.
+
+<p align="center">
+  <img width="460" height="300" src="https://github.com/AliceDeLorenci/EVOLUTIONARY-ALGORITHMS/blob/master/maximum_value_calculator/function.png">
+</p>
+
+This program implements three diferent selection methods:
+- roulette wheel selection;
+> A fitness proportionate selection in which the fitter an individual is, the greater probability it has of 
+> being chosen as a parent.
+- tournament selection;
+> For each of the two potential parents, N random individuals are chosen. These individuals then "compete" 
+> and the fitter shall be one of the parents to the child chromosome. This program implements the tournament of two (N = 2).
+- best mates.
+> The fittest individual mates with all other individuals in order to generate offspring.   
+
+Regardless of the method implemented, the fittest individual is always clones into the next generation so that its genome doesn't get lost.
+
+The desired method must be chosen in the command line:
+- tournament    
+    $ g++ -Wall -o3 -march=native -D TOURNAMENT main.cpp maxvalue.cpp -o prog -lm
+- roulette     
+    $ g++ -Wall -o3 -march=native -D ROULETTE T main.cpp maxvalue.cpp -o prog -lm
+- best mates      
+    $ g++ -Wall -o3 -march=native -D BESTMATES main.cpp maxvalue.cpp -o prog -lm
