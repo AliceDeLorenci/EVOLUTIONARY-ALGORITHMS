@@ -12,6 +12,8 @@ on the interval 0 ≤ x ≤ 100.
   <img width="460" height="300" src="https://github.com/AliceDeLorenci/EVOLUTIONARY-ALGORITHMS/blob/master/maximum_value_calculator/function.png">
 </p>
 
+### Selection Method
+
 This program implements three diferent selection methods:
 - roulette wheel selection;
 > A fitness proportionate selection in which the fitter an individual is, the greater probability it has of 
@@ -36,4 +38,29 @@ The desired method must be chosen in the command line:
 - best mates 
 ```
     $ g++ -Wall -o3 -march=native -D BESTMATES main.cpp maxvalue.cpp -o prog -lm
+```
+
+### Mutation Rates
+
+The mutation strategy is set by macros, so that the algorithm can be run both with static or dynamic mutation rates.
+```
+    #define VARIABLE 1		
+    // 0 -> static mutation rates
+    // 1 -> variable mutation rates
+    
+    #define FULLCYCLE 0		
+    // 0 -> conditioinal (breakable) variable mutation cycle
+    // 1 -> full mutation cycle
+    
+    #define MUTE 1.0 
+    // normal mutation value, this value shall be incresed or decreased in mutated gene value
+
+    // mutation rates for the four stages of the variable mutation cycle
+    #define STAGE1 0.1*MUTE
+    #define STAGE2 10*MUTE
+    #define STAGE3 30*MUTE
+    #define STAGE4 50*MUTE
+    
+		#define INTERVAL 5      
+    // duration of a mutation stage lasts
 ```
