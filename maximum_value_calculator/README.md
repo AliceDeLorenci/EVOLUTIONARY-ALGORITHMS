@@ -26,8 +26,14 @@ Regardless of the method implemented, the fittest individual is always clones in
 
 The desired method must be chosen in the command line:
 - tournament    
+```
     $ g++ -Wall -o3 -march=native -D TOURNAMENT main.cpp maxvalue.cpp -o prog -lm
-- roulette     
+```
+- roulette 
+```
     $ g++ -Wall -o3 -march=native -D ROULETTE T main.cpp maxvalue.cpp -o prog -lm
-- best mates      
+```
+- best mates 
+```
     $ g++ -Wall -o3 -march=native -D BESTMATES main.cpp maxvalue.cpp -o prog -lm
+```
