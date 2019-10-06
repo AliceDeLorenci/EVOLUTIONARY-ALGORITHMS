@@ -69,6 +69,6 @@ For the dynamic mutation, the variable rates cycle starts when the algorithm det
 The effect of such mutation cycles can be seen in the following graphic. When the rates reduce the average fitness curve (here the fittness score is the value of f(x)) aproaches the fittest individual curve and when the mutation is increased the average fitness curve falls.
 
 <p align="center">
-  <img width="460" height="300" src="https://github.com/AliceDeLorenci/EVOLUTIONARY-ALGORITHMS/blob/master/maximum_value_calculator/data/both_best3.png">
+  <img src="https://github.com/AliceDeLorenci/EVOLUTIONARY-ALGORITHMS/blob/master/maximum_value_calculator/data/both_best3.png">
 </p>
 
